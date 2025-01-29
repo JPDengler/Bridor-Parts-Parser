@@ -31,6 +31,7 @@ Enable **GitHub Pages** in repo settings to host online.
 ## TODO
 - Restore hyperlink functionality from excel worksheet to generated table.
 - Improve sorting cabilities on all columns, some work some do not. Sorting can be buggy as well.
+- Fix querying, results vary; sometimes shows too many entries. ie. Searching for device id 1, shows any row with 1 in it.
 - Improve UI layout and feedback.
      - Fix formatting issues.
 - Make it look pretty.
