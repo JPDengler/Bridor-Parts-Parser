@@ -31,6 +31,8 @@ Enable **GitHub Pages** in repo settings to host online.
 ## TODO
 - Restore hyperlink functionality from excel worksheet to generated table.
 - Improve sorting cabilities on all columns, some work some do not. Sorting can be buggy as well.
+- Improve UI layout and feedback.
+     - Fix formatting issues.
 - Make it look pretty.
 
 ---
