@@ -26,6 +26,11 @@ A web-based tool to parse and display parts data from `Devicelist_DRAFT.xlsx` cu
 ## Deployment
 Enable **GitHub Pages** in repo settings to host online.
 
+## TODO
+- Restore hyperlink functionality from excel worksheet to generated table.
+- Improve sorting cabilities on all columns, some work some do not. Sorting can be buggy as well.
+- Make it look pretty.
+
 ---
 **Maintainer**: *Joseph Dengler / Automation Technician / Bridor Maintenance Team*
 
