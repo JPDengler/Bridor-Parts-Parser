@@ -1,7 +1,7 @@
 # Bridor Parts Parser
 
 ## Overview
-A web-based tool to parse and display parts data from `Devicelist_DRAFT.xlsx`. Users can select a production line, filter/search data, and view sortable tables with hyperlinks.
+A web-based tool to parse and display parts data from `Devicelist_DRAFT.xlsx` currently. Users can select a production line, filter/search data, and view sortable tables with hyperlinks. Project is a work in progress and in a early / development state with useless and missing code.
 
 ## Features
 - Loads Excel data automatically.
