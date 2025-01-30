@@ -2,7 +2,7 @@ OUTDATED README - Work in Progress
 
 # Bridor Vineland Plant Hub
 
-[https://jpdengler.github.io/Bridor-Parts-Parser/](https://jpdengler.github.io/Bridor-Vineland-Plant-Hub/index.html#)
+[[https://jpdengler.github.io/Bridor-Parts-Parser/](https://jpdengler.github.io/Bridor-Vineland-Plant-Hub/index.html#)](https://jpdengler.github.io/Bridor-Vineland-Plant-Hub/)
 
 ## Overview
 A web-based tool to parse and display parts data from `Devicelist_DRAFT.xlsx` currently. Users can select a production line, filter/search data, and view sortable tables with hyperlinks. Project is a work in progress and in a early / development state with useless and missing code.
