@@ -15,13 +15,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Container */
-.container {
-    max-width: 90%;
-    margin: auto;
-    padding-top: 20px;
-}
-
 /* Navigation & Back Buttons */
 .back-button {
     display: block;
@@ -52,7 +45,6 @@ h1 {
     color: white;
     width: 250px;
     text-align: center;
-    transition: background 0.3s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -65,7 +57,19 @@ h1 {
     cursor: not-allowed;
 }
 
-/* === TABLE STYLING (Parts Parser & Shift Reports) === */
+/* === SEARCH BAR === */
+#filterInput {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #3a3a3a;
+    color: white;
+}
+
+/* === TABLE STYLING (Cabinet ID, Parts Master, Shift Reports) === */
 .table-container {
     width: 100%;
     margin: auto;
@@ -99,7 +103,6 @@ th {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
 }
 
 th:hover {
@@ -110,29 +113,25 @@ tr:hover {
     background-color: #555555;
 }
 
-/* Responsive Adjustments */
+/* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 1024px) {
-    .container {
-        max-width: 95%;
-    }
-    
     .tool-grid {
         flex-direction: column;
         align-items: center;
     }
 
     table {
-        font-size: 14px;
+        font-size: 10px;
     }
     
     th, td {
-        padding: 10px;
+        padding: 1px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 6000px) {
     th, td {
-        padding: 8px;
-        font-size: 12px;
+        padding: 1px;
+        font-size: 11px;
     }
 }
