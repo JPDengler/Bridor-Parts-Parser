@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Parser</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Bridor Parts Parser</title>
+    <link rel="stylesheet" href="../styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
-    <div class="container mt-4">
-        <h2 class="text-center">Bridor Parts Parser</h2>
+    <div class="container">
+        <h1 class="text-center">Bridor Parts Parser</h1>
+        <a href="../index.html" class="back-button">← Back to Hub</a>
 
-        <!-- Sheet Selection -->
         <div class="mb-3">
             <label for="sheetSelect" class="form-label">Select Line:</label>
             <select id="sheetSelect" class="form-select"></select>
         </div>
 
-        <!-- Filter Input -->
         <div class="mb-3">
             <input type="text" id="filterInput" class="form-control" placeholder="Filter by Location, Cabinet, etc.">
         </div>
 
-        <!-- Table -->
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
