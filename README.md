@@ -1,6 +1,6 @@
 OUTDATED README - Work in Progress
 
-# Bridor Parts Parser
+# Bridor Vineland Plant Hub
 
 [https://jpdengler.github.io/Bridor-Parts-Parser/](https://jpdengler.github.io/Bridor-Vineland-Plant-Hub/index.html#)
 
