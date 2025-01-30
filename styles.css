@@ -1,19 +1,23 @@
-/* General Page Styling */
+/* === General Page Styling === */
 body {
     background-color: #2c2c2c;
     font-family: Arial, sans-serif;
     text-align: center;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 /* Headings */
 h1 {
-    color: #69a0ffac;
+    color: #69a0ff;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 /* Container */
 .container {
-    max-width: 900px;
+    max-width: 90%;
     margin: auto;
     padding-top: 20px;
 }
@@ -24,6 +28,7 @@ h1 {
     margin: 10px 0;
     color: #007bff;
     text-decoration: none;
+    font-size: 18px;
 }
 
 .back-button:hover {
@@ -36,6 +41,7 @@ h1 {
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .tool-card {
@@ -46,6 +52,8 @@ h1 {
     color: white;
     width: 250px;
     text-align: center;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .tool-card:hover {
@@ -58,27 +66,31 @@ h1 {
 }
 
 /* === TABLE STYLING (Parts Parser & Shift Reports) === */
-.table-responsive {
-    display: block;
+.table-container {
     width: 100%;
+    margin: auto;
     overflow-x: auto;
+    padding: 10px;
 }
 
 table {
     width: 100%;
     table-layout: auto;
     border-collapse: collapse;
-    background-color: #3a3a3a; /* Dark table background */
-    color: #ffffff; /* White text */
+    background-color: #3a3a3a;
+    color: #ffffff;
+    margin-top: 10px;
+    font-size: 16px;
+    word-wrap: break-word;
 }
 
 th, td {
     text-align: left;
     padding: 12px;
-    border: 1px solid #666666; /* Softer borders */
+    border: 1px solid #666666;
     white-space: normal;
-    word-wrap: break-word;
-    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 th {
@@ -86,8 +98,41 @@ th {
     color: white;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+th:hover {
+    background-color: #004494;
 }
 
 tr:hover {
     background-color: #555555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .tool-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
 }
