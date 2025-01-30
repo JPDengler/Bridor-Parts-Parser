@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Reports</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Shift Reports</h1>
+        <a href="../index.html" class="back-button">← Back to Hub</a>
+
+        <p class="text-center">Shift reports are automatically retrieved from emails.</p>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Sender</th>
+                        <th>Received Time</th>
+                        <th>Body</th>
+                    </tr>
+                </thead>
+                <tbody id="shiftReportBody">
+                    <tr><td colspan="4">Loading shift reports...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("../OutPyShiftReports/Shift_Reports.xlsx")
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const workbook = XLSX.read(new Uint8Array(data), { type: "array" });
+                    const sheet = workbook.SheetNames[0]; // Ensure this matches the Excel sheet name
+                    const reports = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
+
+                    let tbody = document.getElementById("shiftReportBody");
+                    tbody.innerHTML = ""; // Clear placeholder
+
+                    reports.forEach(report => {
+                        let row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${report["Subject"] || "N/A"}</td>
+                            <td>${report["Sender"] || "N/A"}</td>
+                            <td>${report["Time"] || "N/A"}</td>
+                            <td>${report["Body"] || "N/A"}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error("Error loading shift reports:", error));
+        });
+    </script>
+</body>
+</html>

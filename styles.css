@@ -1,24 +1,63 @@
+/* General Page Styling */
 body {
     background-color: #2c2c2c;
     font-family: Arial, sans-serif;
-    font-weight: bolder;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 350%;
     text-align: center;
-    color: #69a0ffac;
-    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
 }
 
+/* Headings */
+h1 {
+    color: #69a0ffac;
+}
+
+/* Container */
 .container {
-    max-width: 95%;
+    max-width: 900px;
     margin: auto;
     padding-top: 20px;
-    
 }
 
+/* Navigation & Back Buttons */
+.back-button {
+    display: block;
+    margin: 10px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* === HOMEPAGE STYLES === */
+.tool-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tool-card {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    width: 250px;
+    text-align: center;
+}
+
+.tool-card:hover {
+    background: #0056b3;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === TABLE STYLING (Parts Parser & Shift Reports) === */
 .table-responsive {
     display: block;
     width: 100%;
@@ -27,28 +66,28 @@ h2 {
 
 table {
     width: 100%;
-    table-layout: fixed; /* Forces all columns to fit inside the table */
+    table-layout: auto;
     border-collapse: collapse;
+    background-color: #3a3a3a; /* Dark table background */
+    color: #ffffff; /* White text */
 }
 
+th, td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #666666; /* Softer borders */
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 16px;
+}
 
-th.sortable:hover {
+th {
     background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+    text-align: center;
 }
 
-/* Adjust table font size dynamically for smaller screens */
-@media (max-width: 1200px) {
-    table {
-        font-size: 14px;
-    }
+tr:hover {
+    background-color: #555555;
 }
-
-@media (max-width: 768px) {
-    table {
-        font-size: 12px;
-    }
-    th, td {
-        padding: 5px;
-    }
-}
-

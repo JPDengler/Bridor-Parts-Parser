@@ -10,15 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch("Devicelist_DRAFT.xlsx")
         .then(response => response.arrayBuffer())
         .then(data => {
-            const workbook = XLSX.read(new Uint8Array(data), { type: "array" });
+            const workbook = XLSX.read(new Uint8Array(data), { type: "array", cellDates: true });
             workbook.SheetNames.forEach(sheet => {
-                excelData[sheet] = XLSX.utils.sheet_to_json(workbook.Sheets[sheet], { defval: "" });
+                excelData[sheet] = XLSX.utils.sheet_to_json(workbook.Sheets[sheet], { defval: "", raw: false });
+
                 const option = document.createElement("option");
                 option.value = sheet;
                 option.textContent = sheet;
                 sheetSelect.appendChild(option);
             });
-            loadSheetData(sheetSelect.value);
+            loadSheetData(sheetSelect.value, workbook);
         });
 
     sheetSelect.addEventListener("change", function() {
@@ -33,13 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    function loadSheetData(sheetName) {
+    function loadSheetData(sheetName, workbook) {
         tableHeaders.innerHTML = "";
         tableBody.innerHTML = "";
 
         if (!excelData[sheetName] || excelData[sheetName].length === 0) return;
 
+        const sheet = workbook.Sheets[sheetName]; // Get the raw sheet data
         const headers = Object.keys(excelData[sheetName][0]);
+
         headers.forEach((header, index) => {
             const th = document.createElement("th");
             th.textContent = header;
@@ -48,31 +51,31 @@ document.addEventListener("DOMContentLoaded", function() {
             tableHeaders.appendChild(th);
         });
 
-        populateTable(excelData[sheetName]);
+        populateTable(excelData[sheetName], sheet);
     }
 
-    function populateTable(data) {
+    function populateTable(data, sheet) {
         tableBody.innerHTML = "";
-        data.forEach(row => {
+        data.forEach((row, rowIndex) => {
             const tr = document.createElement("tr");
-            Object.keys(row).forEach(header => {
+            Object.keys(row).forEach((header, colIndex) => {
                 const td = document.createElement("td");
                 const cellValue = row[header];
-                
-                if (typeof cellValue === "string" && cellValue.includes("http")) {
-                    const linkMatch = cellValue.match(/(http[^\s]+)/);
-                    if (linkMatch) {
-                        const a = document.createElement("a");
-                        a.href = linkMatch[0];
-                        a.target = "_blank";
-                        a.textContent = cellValue.replace(linkMatch[0], "").trim() || "Link";
-                        td.appendChild(a);
-                    } else {
-                        td.textContent = cellValue;
-                    }
+
+                const cellAddress = XLSX.utils.encode_cell({ c: colIndex, r: rowIndex + 1 }); // Get correct cell reference
+                const cell = sheet[cellAddress];
+
+                if (cell && cell.l && cell.l.Target) {
+                    // If the cell contains a hyperlink
+                    const link = document.createElement("a");
+                    link.href = cell.l.Target;
+                    link.textContent = cellValue || "Link";
+                    link.target = "_blank"; // Open in new tab
+                    td.appendChild(link);
                 } else {
                     td.textContent = cellValue || "";
                 }
+
                 tr.appendChild(td);
             });
             tableBody.appendChild(tr);
@@ -100,6 +103,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        populateTable(data);
+        populateTable(data, XLSX.read(excelData[sheetName], { type: "array" }).Sheets[sheetName]);
     }
 });

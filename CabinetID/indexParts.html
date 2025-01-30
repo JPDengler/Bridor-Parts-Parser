@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridor Parts Parser</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Cabinet ID Search</h1>
+        <a href="../index.html" class="back-button">← Back to Hub</a>
+
+        <div class="mb-3">
+            <label for="sheetSelect" class="form-label">Select Line:</label>
+            <select id="sheetSelect" class="form-select"></select>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" id="filterInput" class="form-control" placeholder="Filter by Location, Cabinet, etc.">
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr id="tableHeaders"></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
