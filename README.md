@@ -62,6 +62,32 @@ The project is still in an **early development phase**, with several functionali
 📌 **Optimize Search Filtering** - Implement **exact-match searching** to avoid unintended results.\
 📌 **Inventory Parts Master Tool** - Implement the **new inventory tracking feature**.\
 
+* * * * *
+
+**ROADMAP**
+----------------------------
+
+### 🔐 Authentication & Security
+- [ ] Require **login for all users** before accessing the site  
+- [ ] Implement **JWT-based authentication** with secure session storage  
+- [ ] Create **User Model** (username, email, password, role)  
+- [ ] Setup **login, logout, and user management API routes**  
+- [ ] Enforce **role-based access** (Admin vs. User)  
+
+### ⚙️ Backend API Development
+- [ ] Convert **Cabinet ID Search & Parts Master** to pull data from **MongoDB** instead of Excel  
+- [ ] Create API routes for **/api/cabinets**, **/api/parts**, and **/api/users**  
+- [ ] Restrict API access to **authenticated users only**  
+
+### 🎨 Frontend Integration
+- [ ] Build a **login page & authentication flow**  
+- [ ] Redirect users to login if not authenticated  
+- [ ] Modify **script.js** to fetch data from the API  
+
+### 🔒 Security Enhancements
+- [ ] Secure passwords with **bcrypt.js**  
+- [ ] Protect routes with **JWT middleware**  
+- [ ] Implement **input validation & brute-force protection**  
 
 * * * * *
 
